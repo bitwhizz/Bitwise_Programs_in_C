@@ -4,7 +4,7 @@
 
 
 
-main()
+int main(void)
 {
 	int a,b=0x01,c=0,d=0;
 	int count=0;
@@ -13,7 +13,7 @@ main()
 	printf("enter the no:");
 	scanf("%d",&a);
 
-	for(i=0;i<sizeof(int);i++)
+	for(i=0;i<sizeof(int)*__CHAR_BIT__;i++)
 	{
 		c=(b<<i);
 		d=a&c;
