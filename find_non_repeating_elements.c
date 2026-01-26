@@ -16,7 +16,7 @@ this check we can differentiate this two numbers.
 
 void get2nonrepeatingNos(int array[],unsigned int n ,int *x,int *y)
 {
-    int XOR = array[0];
+    int _XOR_Container = array[0];
     int set_bit_no = 0;
 
     int itemp = 0;
@@ -25,13 +25,13 @@ void get2nonrepeatingNos(int array[],unsigned int n ,int *x,int *y)
 
     /*Get XOR of all elements*/
     for(itemp = 1;itemp<n;itemp++){
-        XOR ^= array[itemp];
+        _XOR_Container ^= array[itemp];
     }
 
     /*set_bit_no holds one of the first set bit of XORed value.
     first set bit in XORed array holdings set bits for
      non repeating elements in an array */
-    set_bit_no = XOR & ~(XOR-1);
+    set_bit_no = _XOR_Container & ~(_XOR_Container-1);
 
     for (itemp=0 ; itemp<n ; itemp++){
         if(array[itemp] & set_bit_no)
