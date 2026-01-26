@@ -38,7 +38,7 @@ bool isPalindrome(unsigned int num)
 
 int main(void)
 {
-    unsigned int Xvar = 0x99;
+    unsigned int Xvar = 0XC0000003;     //utilizing the full bit space
     bool status = false;
 
     status=isPalindrome(Xvar);
