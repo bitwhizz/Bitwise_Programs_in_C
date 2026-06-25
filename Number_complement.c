@@ -15,13 +15,17 @@ int find_complement(int num)
 {
     if(num == 0) return 1;
 
+    //Find the number of bits in num
+    ////we cast to unsigned to avoid undefined behaviour with shift overflows
     unsigned int mask = ~0;
 
+    //mask will have 0s where num has bits and 1s everywhere else ( ex: 11111000)
     while(num & mask)
     {
         mask <<= 1;
     }
 
+    //~mask flips it to 00000111 , which is por perfect bitmask
     return num ^ ~mask;
 }
 
