@@ -21,8 +21,9 @@ Because XORing a value with itself results in a zero byte and nonzero otherwise,
 */
 #define haszero(v) (((v) - 0x01010101UL) & ~(v) & 0x80808080UL)
 
+//XOR the word with the mask(~0UL/255 * (n)) to turn matching bytes into 0x00
 #define hasvalue(x,n) \
-(haszero((x) ^ (~0UL/255 * (n))))
+(haszero((x) ^ (~0UL/255 * (n)/*Broadcast 'n' across all 8 bytes*/)))
 
 int main(void) {
     // Test cases (32-bit hex values representing 4 bytes each)
